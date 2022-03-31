@@ -16424,6 +16424,7 @@ MonoBehaviour:
   - {fileID: 206895206, guid: 9b59d27f9957ec04b9db2e57d895a5a2, type: 3}
   rows: 5
   columns: 11
+  speed: 3
 --- !u!1 &1632306358
 GameObject:
   m_ObjectHideFlags: 0

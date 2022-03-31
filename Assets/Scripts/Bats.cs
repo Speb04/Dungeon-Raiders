@@ -39,6 +39,34 @@ public class Bats : MonoBehaviour
     private void Update()
     {
         this.transform.position += _direction * this.speed * Time.deltaTime;
+
+        //when bats touch edge of main camera...
+        Vector3 leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
+        Vector3 rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
+        //... go down 1.0f
+        foreach (Transform bat in this.transform)
+        {
+            if (!bat.gameObject.activeInHierarchy) {
+                continue;
+            }
+
+            if (_direction == Vector3.right && bat.position.x >= (rightEdge.x - 1.0f))
+            {
+                AdvanceRow();
+            }
+            else if (_direction == Vector3.left && bat.position.x <= (leftEdge.x + 1.0f)) {
+                AdvanceRow();
+            }
+        }
+    }
+
+     private void AdvanceRow()
+    {
+        _direction.x *= -1.0f;
+
+        Vector3 position = this.transform.position;
+        position.y -= 1.0f;
+        this.transform.position = position;
     }
 
 }
