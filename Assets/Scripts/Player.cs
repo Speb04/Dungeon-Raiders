@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Projectile laserPrefab;
+    public Projectile fireballPrefab;
 
     public float speed = 5.0f;
 
@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
 
     private void Shoot()
     {
-        Instantiate(this.laserPrefab, this.transform.position, Quaternion.identity);
+        Instantiate(this.fireballPrefab, this.transform.position, Quaternion.identity);
     }
 
 }
