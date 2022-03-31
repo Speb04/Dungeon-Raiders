@@ -8,6 +8,10 @@ public class Bats : MonoBehaviour
 
     public int columns = 11;
 
+    public float speed = 10.0f;
+
+    private Vector3 _direction = Vector2.right;
+
     private void Awake()
     {
         for (int row = 0; row < this.rows; row++)
@@ -27,4 +31,10 @@ public class Bats : MonoBehaviour
         }
 
     }
+
+    private void Update()
+    {
+        this.transform.position += _direction * this.speed * Time.deltaTime;
+    }
+
 }
