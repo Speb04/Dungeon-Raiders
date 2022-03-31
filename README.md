@@ -8,5 +8,5 @@ Space Invaders Clone for College
 
 ![image](https://user-images.githubusercontent.com/73259276/158195320-33cc0a38-c9c1-4a76-bb23-d095bc75b526.png)
 
-![image](https://user-images.githubusercontent.com/73259276/161139221-a96d3208-0a6e-49dd-9d37-f028150d4f10.png)
+![image](https://user-images.githubusercontent.com/73259276/161139273-0d8b142e-16f6-4fb8-ae9e-6d4488ea3859.png)
 
