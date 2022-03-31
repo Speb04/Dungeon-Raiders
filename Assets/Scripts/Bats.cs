@@ -49,11 +49,12 @@ public class Bats : MonoBehaviour
             if (!bat.gameObject.activeInHierarchy) {
                 continue;
             }
-
+            //1.0f shows how far down bats move
             if (_direction == Vector3.right && bat.position.x >= (rightEdge.x - 1.0f))
             {
                 AdvanceRow();
             }
+            //1.0f shows how far down bats move
             else if (_direction == Vector3.left && bat.position.x <= (leftEdge.x + 1.0f)) {
                 AdvanceRow();
             }
