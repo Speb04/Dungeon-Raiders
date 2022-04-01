@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
 
     public float speed = 5.0f;
 
+    private bool _fireballActive;
+
     private void Update()
     {
         if (Input.GetKey(KeyCode.A)) {
@@ -23,7 +25,18 @@ public class Player : MonoBehaviour
 
     private void Shoot()
     {
-        Instantiate(this.fireballPrefab, this.transform.position, Quaternion.identity);
+        if (!_fireballActive)
+        {
+            //only only projectile active at once
+            Projectile projectile = Instantiate(this.fireballPrefab, this.transform.position, Quaternion.identity);
+            projectile.destroyed += FireballDestroyed;
+            _fireballActive = true;
+        }
+    }
+
+    private void FireballDestroyed()
+    {
+        _fireballActive = false;
     }
 
 }
