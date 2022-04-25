@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class PlayerProjectile : MonoBehaviour
 {
 
     public Vector3 direction;
@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     public float speed;
 
     public System.Action destroyed;
+    public Player player;
 
     private void Update()
     {
@@ -18,6 +19,8 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        player = GameObject.Find("Player").GetComponent<Player>();
+        player._fireballActive = false;
         Destroy(this.gameObject);
     }
 }

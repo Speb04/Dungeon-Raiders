@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Projectile fireballPrefab;
+    public PlayerProjectile fireballPrefab;
 
     public float speed = 5.0f;
 
-    private bool _fireballActive;
+    public bool _fireballActive;
 
     private void Update()
     {
@@ -28,13 +28,13 @@ public class Player : MonoBehaviour
         if (!_fireballActive)
         {
             //only only projectile active at once
-            Projectile projectile = Instantiate(this.fireballPrefab, this.transform.position, Quaternion.identity);
+            PlayerProjectile projectile = Instantiate(this.fireballPrefab, this.transform.position, Quaternion.identity);
             projectile.destroyed += FireballDestroyed;
             _fireballActive = true;
         }
     }
 
-    private void FireballDestroyed()
+    public void FireballDestroyed()
     {
         _fireballActive = false;
     }

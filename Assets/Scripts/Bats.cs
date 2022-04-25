@@ -14,9 +14,15 @@ public class Bats : MonoBehaviour
 
     public int amountKilled { get; private set; } //counts amount killed
 
+    public int amountAlive => this.totalBats - this.amountKilled;
+
     public int totalBats => this.rows * this.columns; //calculates percentage of bats
 
     public float percentKilled => (float)this.amountKilled / (float)this.totalBats; //calculates total bats killed
+
+    public float poisonAttackRate = 1.0f;
+
+    public Projectile poisonPrefab;
 
     private void Awake()
     {
@@ -39,6 +45,11 @@ public class Bats : MonoBehaviour
             }
         }
 
+    }
+
+    private void Start()
+    {
+        InvokeRepeating(nameof(PoisonAttack), this.poisonAttackRate, this.poisonAttackRate);
     }
 
     //used to make the Bats move, stops frame rate from having an affect on them
@@ -77,6 +88,21 @@ public class Bats : MonoBehaviour
         this.transform.position = position;
     }
 
+    private void PoisonAttack()
+    {
+        foreach (Transform bat in this.transform)
+        {
+            if (!bat.gameObject.activeInHierarchy) {
+                continue;
+            }
+
+            if (Random.value < (1.0f / (float)this.amountAlive))
+        {
+                Instantiate(this.poisonPrefab, bat.position, Quaternion.identity);
+                break;
+            }
+        }
+    }
     private void BatKilled()
     {
         this.amountKilled++;
