@@ -17,7 +17,7 @@ public class Level4 : MonoBehaviour
 
     }
 
-    public void LoadLevel()
+    public void LoadLevel4()
     {
         SceneManager.LoadScene("Level 4");
     }
